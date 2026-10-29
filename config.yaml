@@ -1,0 +1,43 @@
+model:
+  base_model_name: "Qwen/Qwen2.5-0.5B-Instruct"
+  torch_dtype: "auto"
+  trust_remote_code: true
+  device_map: "auto"
+
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  bias: "none"
+  task_type: "CAUSAL_LM"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+training:
+  output_dir: "models/disaster_ai_qwen_lora"
+  learning_rate: 0.0002
+  lr_scheduler_type: "cosine"
+  num_train_epochs: 3
+  per_device_train_batch_size: 2
+  per_device_eval_batch_size: 2
+  gradient_accumulation_steps: 4
+  max_seq_length: 512
+  logging_steps: 2
+  save_strategy: "epoch"
+  evaluation_strategy: "epoch"
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  gradient_checkpointing: false
+  dataloader_num_workers: 0
+
+dataset:
+  train_path: "data/train.jsonl"
+  validation_path: "data/validation.jsonl"
+  test_path: "data/test.jsonl"
+  manifest_path: "data/dataset_manifest.json"

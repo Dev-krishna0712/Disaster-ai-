@@ -1,0 +1,36 @@
+{
+  "dataset_name": "Disaster-AI-Curated-SFT-Dataset",
+  "version": "1.0.0",
+  "total_examples": 27,
+  "split_counts": {
+    "train": 22,
+    "validation": 2,
+    "test": 3
+  },
+  "supported_languages": [
+    "en",
+    "hi",
+    "hinglish"
+  ],
+  "categories_covered": [
+    "Cyclone and Severe Weather",
+    "Earthquake Safety",
+    "Emergency Preparedness",
+    "Fire and Smoke",
+    "First Aid and Emergency Response",
+    "Flood Safety",
+    "Heatwaves and Extreme Weather",
+    "Landslide and Cloudburst",
+    "Tsunami"
+  ],
+  "provenance": {
+    "primary_sources": [
+      "NDMA SACHET (https://sachet.ndma.gov.in/DosDont)",
+      "NDRF Disaster Awareness (https://ndrf.gov.in/en/disaster-awareness)",
+      "NDRF Basic Disaster Management Course (https://ndrf.gov.in/en/basic-disaster-management-course)"
+    ],
+    "license": "Government Open Data / Public Awareness Educational Guidance",
+    "curation_methodology": "Manual verification against official Indian disaster protocols"
+  },
+  "data_leakage_safeguard": "Group-wise scenario partitioning ensures identical questions in different languages remain in the same split."
+}
